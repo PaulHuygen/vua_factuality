@@ -1,0 +1,7 @@
+#!/bin/bash
+thisdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cd $thisdir
+timblpath=`which timbl`
+tmpDir=`mktemp -d -t vua_factuality.XXXXXX`
+python $thisdir/vua_factuality_naf_wrapper.py -t $timblpath -p $thisdir/ $tmpDir/
+rm -rf $tmpDir
